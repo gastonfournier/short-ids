@@ -1,7 +1,7 @@
 /**
  * Created by gastonfournier[at]gmail.com on 15/06/17.
  */
-public class HexUtils {
+public class IdUtils {
     // this alphabet is taken from Base64.Encoder.toBase64URL private variable
     private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
     public static boolean DEBUG = false;
@@ -24,8 +24,9 @@ public class HexUtils {
     }
 
     public static String bitsToBase64(String bits) {
-        int pad = 6 - (bits.length() % 6);
-        String paddedBits = String.format("%" + (bits.length() + pad) + "s", bits).replace(' ', '0');
+        int length = bits.length();
+        int pad = getPad(length);
+        String paddedBits = String.format("%" + (length + pad) + "s", bits).replace(' ', '0');
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < paddedBits.length() ; i += 6) {
             String sixBits = paddedBits.substring(i, i + 6);
@@ -37,5 +38,26 @@ public class HexUtils {
             }
         }
         return result.toString();
+    }
+
+    protected static int getPad(int length) {
+        int pad = 6 - (length % 6);
+        if (pad == 6) {
+            return 0; // instead of adding 6 digits add none
+        } else {
+            return pad;
+        }
+    }
+
+    public static String decimal2base64(Integer number) {
+        String bits = Integer.toBinaryString(number);
+        if (DEBUG){
+            System.out.println(number + " -> " + bits);
+        }
+        return bitsToBase64(bits);
+    }
+
+    public static String hex2base64(String hexString) {
+        return bitsToBase64(hex2bits(hexString));
     }
 }
