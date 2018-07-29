@@ -1,3 +1,5 @@
+![](https://api.travis-ci.org/gastonfournier/short-ids.svg?branch=master)
+
 # Short ids
 A simple example to show how we can shorten the length of an UUID by changing it's representation
 
