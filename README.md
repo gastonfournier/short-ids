@@ -19,3 +19,5 @@ and here you can find an analysis based on the range of representable values
 http://preshing.com/20110504/hash-collision-probabilities/ 
 
 There's also this blog post that inspired me to do this: http://www.singular.co.nz/2007/12/shortguid-a-shorter-and-url-friendly-guid-in-c-sharp/
+
+This is my blogpost about it: http://www.gastonfournier.com.ar/post/ids/shortening-uuids/
