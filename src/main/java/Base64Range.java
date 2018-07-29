@@ -1,11 +1,5 @@
-import java.security.SecureRandom;
-import java.util.Arrays;
 import java.util.Base64;
-import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
-
-import suuid.SUUID;
 
 /**
  * Created by gastonfournier[at]gmail.com on 15/06/17.
