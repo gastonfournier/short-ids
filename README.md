@@ -1,7 +1,36 @@
 ![](https://api.travis-ci.org/gastonfournier/short-ids.svg?branch=master)
 
-# Short ids
-A simple example to show how we can shorten the length of an UUID by changing it's representation
+# SUUID is a wrapper around java.util.UUID shortening its String representation
+
+You can use it as:
+
+```java
+SUUID suuid = SUUID.randomSUUID();
+System.out.println(suuid);
+System.out.println(suuid.getUuid()); // unwrap the internal UUID
+```
+
+Will output something like:
+
+```
+nbPZYF4nQoKYdIsOLnUKIg
+9db3d960-5e27-4282-9874-8b0e2e750a22
+```
+
+An existing UUID can be wrapped using SUUID constructor:
+
+```java
+UUID uuid = UUID.randomUUID();
+SUUID suuid = new SUUID(uuid);
+```
+
+To obtain an SSUID from its String representation:
+```java
+SUUID suuid = SUUID.fromBase64("nbPZYF4nQoKYdIsOLnUKIg");
+```
+
+# Implementation details
+Following there's a simple example to show how we can shorten the length of an UUID by changing its representation
 
 If you run the ShortUuids class you'll get an output like this:
 
